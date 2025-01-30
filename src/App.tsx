@@ -1,14 +1,22 @@
-import { useState } from "react";
-
 import Dashboard from "./views/dashboard";
 import Login from "./views/login";
+
+import useLogin from "./hooks/useLogin";
 
 import "./App.css";
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState<boolean>(false);
+    const { loading, loggedIn } = useLogin();
 
-    return loggedIn ? <Dashboard /> : <Login />;
+    if (loading) {
+        return <></>;
+    }
+
+    if (!loggedIn) {
+        return <Login />;
+    }
+
+    return <Dashboard />;
 }
 
 export default App;
