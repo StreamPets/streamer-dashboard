@@ -6,7 +6,7 @@ import useLogin from "./hooks/useLogin";
 import "./App.css";
 
 function App() {
-    const { loading, loggedIn } = useLogin();
+    const { loading, loggedIn, overlayId, channelId } = useLogin();
 
     if (loading) {
         return <></>;
@@ -16,7 +16,7 @@ function App() {
         return <Login />;
     }
 
-    return <Dashboard />;
+    return <Dashboard overlayId={overlayId} channelId={channelId} />;
 }
 
 export default App;
