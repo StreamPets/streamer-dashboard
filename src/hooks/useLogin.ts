@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
+import { config } from "../config";
 
 const HTTP_OK = 200;
 const HTTP_UNAUTHORIZED = 401;
 
 function useLogin() {
-    const API_URL = import.meta.env.VITE_API_URL;
-
     const [loading, setLoading] = useState<boolean>(true);
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
     useEffect(() => {
         const getUserData = async () => {
-            const response = await fetch(API_URL + "/dashboard/login", {
+            const response = await fetch(config.API_URL + "/dashboard/login", {
                 credentials: "include",
             });
 

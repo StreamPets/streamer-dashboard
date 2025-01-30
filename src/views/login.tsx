@@ -1,8 +1,8 @@
-function Login() {
-    const oauth_url = import.meta.env.VITE_OAUTH_URL;
+import { config } from "../config";
 
+function Login() {
     const handleRedirect = () => {
-        window.location.href = oauth_url + "/oauth?scopes=channel:bot";
+        window.location.href = config.OAUTH_URL + "/oauth?scopes=channel:bot";
     };
 
     return (
